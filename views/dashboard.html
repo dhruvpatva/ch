@@ -1,0 +1,95 @@
+<!-- BEGIN PAGE BREADCRUMB -->
+<ul class="page-breadcrumb breadcrumb hide">
+	<li>
+		<a href="#">Home</a><i class="fa fa-circle"></i>
+	</li>
+	<li class="active">
+		Dashboard
+	</li>
+</ul>
+<!-- END PAGE BREADCRUMB -->
+<!-- BEGIN MAIN CONTENT -->
+<div ng-controller="DashboardController" class="margin-top-10" ng-init="getDashboardDetails()">
+	<div class="row widget-row">
+        <div class="col-sm-2 tot-block" data-ng-if="User.userRole !== 'SPEadmin' ">
+            <div class="dashboard-stat blue">
+                <div class="visual">
+                    <i class="fa fa-users"></i>
+                </div>
+                <div class="details">
+                    <div class="number" data-counter="counterup" data-value="{{total_enduser}}"> {{total_enduser}} </div>
+                    <div class="desc"> End User </div>
+                </div>
+                <a class="more" href="#"> View more
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+        <!--<div class="col-sm-2 tot-block" data-ng-if="User.userRole !== 'SPEadmin' ">
+            <div class="dashboard-stat red">
+                <div class="visual">
+                    <i class="fa fa-users"></i>
+                </div>
+                <div class="details">
+                    <div class="number" data-counter="counterup" data-value="{{total_speadmin}}"> {{total_speadmin}} </div>
+                    <div class="desc"> SPE Admin </div>
+                </div>
+                <a class="more" href="#"> View more
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-2 tot-block" data-ng-if="User.userRole !== 'SPEadmin' ">
+            <div class="dashboard-stat green">
+                <div class="visual">
+                    <i class="fa fa-users"></i>
+                </div>
+                <div class="details">
+                    <div class="number" data-counter="counterup" data-value="{{total_spiuser}}"> {{total_spiuser}} </div>
+                    <div class="desc"> SPI User </div>
+                </div>
+                <a class="more" href="#"> View more
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-2 tot-block">
+            <div class="dashboard-stat purple">
+                <div class="visual">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                <div class="details">
+                    <div class="number" data-counter="counterup" data-value="{{total_events}}"> {{total_events}} </div>
+                    <div class="desc"> Events </div>
+                </div>
+                <a class="more" href="#"> View more
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-2 tot-block">
+            <div class="dashboard-stat yellow">
+                <div class="visual">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                <div class="details">
+                    <div class="number" data-counter="counterup" data-value="{{total_classes}}"> {{total_classes}} </div>
+                    <div class="desc"> Classes </div>
+                </div>
+                <a class="more" href="#"> View more
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div> -->
+    </div>
+    
+    
+	
+</div>
+<!-- END MAIN CONTENT -->
+<!-- BEGIN MAIN JS & CSS -->
+<script>
+	Index.init();    
+	Tasks.initDashboardWidget();
+</script>
+<!-- BEGIN MAIN JS & CSS -->

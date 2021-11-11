@@ -1,0 +1,216 @@
+<ul class="page-breadcrumb breadcrumb">
+     <!--<li>
+          <i class="fa fa-home"></i>
+          <a ui-sref="dashboard" >Home</a>
+          <i class="fa fa-angle-right"></i>
+     </li>
+     <li><a href="javascript:void(0);">User Profile</a></li>  -->
+</ul>
+<div class="row">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a data-target="#tab_1_1" data-toggle="tab">Company</a>
+        </li>
+        <li>
+            <a data-target="#tab_1_2" data-toggle="tab">Password</a>
+        </li>
+    </ul>
+</div>
+<div class="row top-spacing" ng-init="initUserProfile()">
+    <div class="col-md-12">
+        
+        <!-- BEGIN PROFILE CONTENT -->
+        <div class="profile-content">
+                    <div class="bordered">
+                        
+                        <div class="portlet-body">
+                            <div class="tab-content">
+                                <!-- PERSONAL INFO TAB -->
+                                <div class="tab-pane active" id="tab_1_1">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                    <!-- BEGIN PROFILE SIDEBAR -->
+                                    <div class="profile-sidebar">
+                                        <!-- PORTLET MAIN -->
+                                        <form method="post" class="no-margin"  ng-submit="changeProfile()" >
+                                        <label for="profileimg">
+                                        <div class="portlet light profile-sidebar-portlet bordered" >
+                                            <!-- SIDEBAR USERPIC -->
+                                                <img ng-src="{{filepreview}}" ng-show="filepreview" class="img-responsive thumbnail" alt="">
+                                                <div class="plus_main" ng-show="!filepreview">
+                                                    <div class="v-line plus_color"></div>
+                                                    <div class="h-line plus_color"></div>
+                                                </div>
+                                            <!-- END SIDEBAR USERPIC -->
+                                        </div>
+                                        </label>
+                                        
+                                            <input type="file" fileinput="file" id="profileimg" ng-model="file" filepreview="filepreview" style="display: none;" />
+                                            <div>
+                                               <button type="submit" class="btn blue-k"> Upload Logo </button>
+                                               <div class="size-block">
+                                                   <p>Minimum size: 500X500<br>
+                                                   (jpg or png)</p>
+                                               </div>
+                                            </div>
+                                        </form>
+                                        <!-- END PORTLET MAIN -->
+                                    </div>
+                                    <!-- END BEGIN PROFILE SIDEBAR -->
+                                    </div>
+                                        <div class="col-sm-10 portlet light">
+                                    <div class="alert alert-danger show-error" ng-show="error"> <strong>Error! </strong>{{error_code}} </div>
+                                    <div class="alert alert-success show-success" ng-show="success"> <strong>Success! </strong> </div>
+                                    <form role="form" id="form-chnagepass" method="post" enctype="multipart/form-data" ng-submit="Update_profile()">
+                                        <div class="form-group">
+                                            <label class="control-label">Company Name</label>
+                                            <input type="text" placeholder="" name="companyname" class="form-control" ng-model="userProfile.company_name"> 
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Address</label>
+                                            <input type="text" placeholder="" name="address" class="form-control" ng-model="userProfile.address"> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row f-margin">
+                                            <div class="col-sm-3 first">
+                                                <label class="control-label">City</label>
+                                                <input type="text" placeholder="" name="city" class="form-control" ng-model="userProfile.city"> 
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="control-label">State</label>
+                                                <select name="state" class="form-control" ng-options="option.name for option in states.availableOptions track by option.id" ng-model="states.selectedOption">
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="control-label">Zip code</label>
+                                                <input type="text" placeholder="" name="zipcode" class="form-control" ng-model="userProfile.zipcode"> 
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row f-margin">
+                                                <div class="col-sm-6 first">
+                                                    <label class="control-label">Email Address</label>
+                                                    <input type="text" placeholder="" name="email" class="form-control" ng-model="userProfile.email"> 
+                                                </div>
+                                                <div class="col-sm-6 last">
+                                                    <label class="control-label">Phone Number</label>
+                                                    <input type="text" placeholder="" name="email" class="form-control" ng-model="userProfile.mobile"> 
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        <div class="margin-top-20 pull-right">
+                                            <button type="submit" class="btn red-k"> Save </button>
+                                            <!--<a ui-sref="dashboard" class="btn default"> Cancel </a> -->
+                                        </div>
+                                    </form>
+                                    </div>
+                                </div>
+                                </div>
+                                <!-- END PERSONAL INFO TAB -->
+                                <!-- CHANGE AVATAR TAB -->
+                                <div class="tab-pane" id="tab_1_3">
+                                    <div class="alert alert-danger show-error" ng-show="error" > <strong>Error! </strong>{{error_code}} </div>
+                                    <form role="form" method="post" id="profile_form" enctype="multipart/form-data" ng-submit="changeProfile()">
+                                        <div class="form-group">
+                                            <div class="fileinput fileinput-new" data-provides="fileinput" >
+                                                <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+                                                    <!--<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="">-->
+                                                    <img src="{{userProfile.profile_image}}" alt="" ng-model="userProfile.profile_image">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                                                <div>
+                                                    <span class="btn default btn-file">
+                                                        <span class="fileinput-new" > Select image </span>
+                                                        <span class="fileinput-exists" > Change </span>
+                                                        <input id="account-profile" type="file" file-model="file" ng-model="file" ngf-select="onFileSelect($file)" ngf-pattern="'image/*'" > </span>
+                                                    <a href="javascript:;" id="reset_prerview" class="btn default fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix margin-top-10">
+                                            </div>
+                                        </div>
+                                        <div class="margin-top-20">
+                                            <button type="submit" class="btn green"> Submit </button>
+                                            <a ui-sref="dashboard" class="btn default"> Cancel </a>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- END CHANGE AVATAR TAB -->
+                                <!-- CHANGE PASSWORD TAB -->
+                                <div class="tab-pane" id="tab_1_2">
+                                    
+                                    <div class="col-sm-6">
+                                        <div class="portlet light">
+                                            <div class="alert alert-danger show-error" ng-show="error"> <strong>Error! </strong>{{error_code}} </div>
+                                            <div class="alert alert-success show-success" ng-show="success"> <strong>Success! </strong> </div>
+                                            <div class="caption-t caption-md">
+                                                <i class="icon-globe theme-font hide"></i>
+                                                <span class="caption-title bold">Change Password</span>
+                                            </div>
+                                            <form id="form-chnagepass" method="post" enctype="multipart/form-data" ng-submit="change_userpass()">
+                                                <div class="form-group">
+                                                    <label class="control-label">Current Password</label>
+                                                    <input type="password" class="form-control" name="oldpassword" ng-model="user.oldpassword" required> 
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">New Password</label>
+                                                    <input type="password" class="form-control" name="newpassword" ng-model="user.newpassword" required> 
+                                                    <span class="password-strength" ng-if="user.newpassword">
+                                                        <span  style="padding: 0 {{user.newpassword.length * 3}}px"  ></span>
+                                                    </span>
+                                                    <span class="inline-message space-msg" ng-if="user.newpassword.length < 5" > Week </span>
+                                                    <span class="inline-message good space-msg" ng-if="user.newpassword.length >= 5 && user.newpassword.length < 10" > Good </span>
+                                                    <span class="inline-message very-good space-msg" ng-if="user.newpassword.length >= 10" > Excellent </span>
+                                                    
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Confirm Password</label>
+                                                    <input type="password" class="form-control" name="retypepassword" ng-model="user.retypepassword" required> 
+                                                    <span class="inline-message" ng-if="user.newpassword != user.retypepassword && user.retypepassword" ><i class="fa fa-times-circle"></i>  Does not match</span>
+                                                </div>
+                                                <div class="margin-top-20 pull-right-btn">
+                                                    <button type="submit" class="btn red-k"> Save </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-6">
+                                        <div class="portlet light">
+                                            <div class="caption-t caption-md">
+                                                <i class="icon-globe theme-font hide"></i>
+                                                <span class="caption-title bold">Forgot Password?</span>
+                                                <p class="caption-desc">Enter your email address and we will send you an email with instructions to reset your password.</p>
+                                            </div>
+                                            <!--<div class="alert alert-danger show-error" ng-show="error"> <strong>Error! </strong>{{error_code}} </div>
+                                            <div class="alert alert-success show-success" ng-show="success"> <strong>Success! </strong> </div> -->
+                                            <form id="form-chnagepass" method="post" enctype="multipart/form-data" ng-submit="">
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control" placeholder="Email address" name="email" ng-model="user.email" required> 
+                                                </div>
+                                                <div class="margin-top-20">
+                                                    <button type="submit" class="btn blue-k blue-k-width"> Reset Password </button>
+                                                </div>
+                                            </form>
+                                            <div class="info-content">
+                                                <div class="bottom-line"></div>
+                                                <p class="caption-desc info-block">
+                                                    if you do not receive an email from us within a few minutes. check your spam filter, as sometimes they end up there. The email will be from  help@clubhousenow.com.   
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END CHANGE PASSWORD TAB -->
+                                
+                                
+                            </div>
+                        </div>
+            </div>
+        </div>
+        <!-- END PROFILE CONTENT -->
+    </div>
+</div> 

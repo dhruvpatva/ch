@@ -1,0 +1,174 @@
+<ul class="page-breadcrumb breadcrumb">
+     <li>
+          <i class="fa fa-home"></i>
+          <a ui-sref="dashboard" >Home</a>
+          <i class="fa fa-angle-right"></i>
+     </li>
+     <li><a href="javascript:void(0);">Edit Event</a></li>
+</ul>
+<div class="form">
+     <!-- BEGIN EXAMPLE TABLE PORTLET-->
+     <div class="portlet light portlet-fit portlet-form bordered" ng-init="edit_Event()">
+          <div class="portlet-title">
+               <div class="caption">
+                    Edit Event
+               </div>
+          </div>
+          <div class="portlet-body"> 
+               <div class="alert alert-danger show-error" ng-show="error"> <strong>Error! </strong>{{error_code}}</div>
+               <form class="form-horizontal form-bordered"   method="post"  enctype="multipart/form-data" ng-submit="Update_Event()" >
+                    <div class="form-body">
+                         <input type="hidden" name="id" ng-model="event.id" />
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Name</label>
+                              <div class="col-sm-6">
+                                   <input type="text" name="name" placeholder="Class Name" class="form-control" ng-model="event.name" escape-to-plain-text value="" required>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Category</label> 
+                              <div class="col-sm-6" >
+                                   <select class="form-control select2" id="category" name="category" ng-options="option.name for option in eventscategories.availableOptions track by option.id" ng-model="eventscategories.selectedOption" required></select>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Logo</label>
+                              <div class="col-sm-4">
+                                   <img class="class_logo" src="{{event.image}}" style="width: 100px;margin-bottom: 10px;" />
+                                   <input type="file" file-model="event.logo">
+                                   <div class="error profile_error"></div>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Banner</label>
+                              <div class="col-sm-4">
+                                   <img class="class_banner" src="{{event.banner_image}}" style="width: 200px;margin-bottom: 10px;" />
+                                   <input type="file" file-model="event.banner">
+                                   <div class="error profile_error"></div>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Description</label>
+                              <div class="col-sm-6">
+                                   <textarea class="form-control" ck-editor name="description" ng-model="event.description"></textarea>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Timezone</label> 
+                              <div class="col-sm-6" >
+                                   <select class="form-control select2" id="timezone" name="timezone" ng-options="option.name for option in timezones.availableOptions track by option.id" ng-model="timezones.selectedOption"></select>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Location</label>
+                              <div class="col-sm-3">
+                                   <input type="text" name="latitude" placeholder="Latitude" class="form-control" ng-model="event.latitude" escape-to-plain-text value="" required>
+                              </div>
+                              <div class="col-sm-3">
+                                   <input type="text" name="longitude" placeholder="Longitude" class="form-control" ng-model="event.longitude" escape-to-plain-text value="" required>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Address</label>
+                              <div class="col-sm-6">
+                                   <input type="text" name="address" placeholder="Class Address" class="form-control" ng-model="event.address" escape-to-plain-text value="" required>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">City</label>
+                              <div class="col-sm-6">
+                                   <input type="text" name="city" placeholder="Class City" class="form-control" ng-model="event.city"  value="{{event.city}}" required>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">State</label>
+                              <div class="col-sm-6">
+                                   <input type="text" name="state" placeholder="Class State" class="form-control" ng-model="event.state"  value="{{event.state}}" required>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Country</label>
+                              <div class="col-sm-6">
+                                   <input type="text" name="country" placeholder="Class Country" class="form-control" ng-model="event.country"  value="{{event.country}}" required>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Zipcode</label>
+                              <div class="col-sm-6">
+                                   <input type="text" name="zipcode" placeholder="Class Zipcode" class="form-control" ng-model="event.zipcode"  value="{{event.zipcode}}" required>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Is Paid?</label>
+                              <div class="col-sm-4">
+                                   <div class="radio-list">
+                                        <label class="radio-inline"><input type="radio" name="is_paid"  ng-model="event.is_paid" value="1" > Yes </label> 
+                                        <label class="radio-inline"><input type="radio" name="is_paid" ng-model="event.is_paid" value="0" > No </label>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="form-group" ng-show="event.is_paid == '1'">
+                              <label class="col-sm-3 control-label">Booking Price</label>
+                              <div class="col-sm-6">
+                                   <input type="text" name="price" placeholder="Class Booking Price" class="form-control" ng-model="event.price"  value="{{event.price}}">
+                              </div>
+                         </div>
+                         <div class="form-group" ng-show="event.is_paid == '1'">
+                              <label class="col-sm-3 control-label">Discount Type</label>
+                              <div class="col-sm-6">
+                                   <div class="radio-list">
+                                        <label class="radio-inline"><input type="radio" name="discount_type" ng-model="event.discount_type" value="0" > None </label> 
+                                        <label class="radio-inline"><input type="radio" name="discount_type"  ng-model="event.discount_type" value="1" > $ </label>
+                                        <label class="radio-inline"><input type="radio" name="discount_type"  ng-model="event.discount_type" value="2" > % </label>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="form-group" ng-show="event.is_paid == '1' && event.discount_type != '0'">
+                              <label class="control-label col-md-3">Event Discount Date</label>
+                              <div class="col-md-3">
+                                   <div class="input-group date" id="offer_start_date">
+                                        <input type="text" size="16" name="offer_start_date" ng-model="event.offer_start_date" value="{{event.offer_start_date}}" readonly class="form-control">
+                                        <span class="input-group-btn">
+                                             <button class="btn default date-reset" type="button"><i class="fa fa-times"></i></button>
+                                             <button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
+                                        </span>
+                                   </div>
+                              </div>
+                              <div class="col-md-3">
+                                   <div class="input-group date" id="offer_end_date">
+                                        <input type="text" size="16" name="offer_end_date" ng-model="event.offer_end_date" value="{{event.offer_end_date}}" readonly class="form-control">
+                                        <span class="input-group-btn">
+                                             <button class="btn default date-reset" type="button"><i class="fa fa-times"></i></button>
+                                             <button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
+                                        </span>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="form-group" ng-show="event.is_paid == '1' && event.discount_type != '0'">
+                              <label class="col-sm-3 control-label">Discount Price</label>
+                              <div class="col-sm-6">
+                                   <input type="text" name="discount_amount" placeholder="Class Discount Price" class="form-control" ng-model="event.discount_amount"  value="{{event.discount_amount}}">
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Status</label>
+                              <div class="col-sm-4">
+                                   <div class="radio-list">
+                                        <label class="radio-inline"><input type="radio" name="status" ng-model="event.status" value="1" > Active </label> 
+                                        <label class="radio-inline"><input type="radio" name="status"  ng-model="event.status" value="0" > Inactive </label>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="form-actions">
+                         <div class="row">
+                              <div class="col-md-offset-3 col-md-9">
+                                   <button type="submit" class="btn green" id="add-new-btn">Submit</button>
+                                   <a class="btn default" ui-sref="events">Cancel</a>
+                              </div>
+                         </div>
+                    </div>
+               </form>
+          </div>
+     </div>
+</div>

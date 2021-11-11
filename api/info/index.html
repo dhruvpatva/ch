@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>apiDoc - CLUBHOUSE NOW</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./css/easy-responsive-tabs.css" rel="stylesheet" media="screen">
+        <link href="./css/style.css" rel="stylesheet" media="screen">
+        <style>
+            .api_td{        
+                max-width: 100px;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="nav-top">
+            <p> CLUBHOUSE NOW Api Documentation </p>
+        </nav>
+        <div class="container">
+            <div><h1></h1></div>
+            <div id="main">
+                <aside>
+                    <nav class="nav-main"  style="margin-top: 0px;">
+                        <ul>
+                            <li class="nav-header" id="nav-main-params"><a href="#getting-started">Api List</a></li>
+                            <li><a href="#login-info">Login</a></li>
+                            <li><a href="#create-acc">Create Account</a></li>
+                            <!--<li><a href="#register-info">Register</a></li>
+                            <li><a href="#get-acc-settings-info">Get Account Settings</a></li>
+                            <li><a href="#set-acc-settings">Set Account Settings</a></li>
+                            <li><a href="#set-profile-img">Set Profile Image</a></li>-->
+                            <li><a href="#get-single-ev">Get Single Event</a></li>
+                            <li><a href="#get-classes-cate">Get Events Category </a></li>
+                            <li><a href="#get-date-class">Get Date Of Event </a></li>
+                            <!--<li><a href="#class-reg">Class Registration </a></li> -->
+                            <li><a href="#date-wise-slots">Get Date Wise Slots </a></li>
+                            <!--<li><a href="#all-class-from-cat">Get All Classes From Category </a></li>
+                            <li><a href="#all-cat-with-class">Get All Category With Classes </a></li> -->
+                        </ul>
+                    </nav>
+                </aside>
+                <div id="content" role="main">
+                    <!--
+                     /* ============================================================
+                      * Params
+                      * ============================================================ */
+                    -->
+                    <section id="params">
+                        <section id="getting-started">
+                            <h2>SiteUrl: http://localhost/ClubhouseNow</h2>
+                        </section>
+                        <article id="login-info">
+                            <h2>@login</h2>
+                            <pre><code>@api {method} path [parameters]</code></pre>
+                            <p>To get authenticate and access for app </p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="code">method</td>
+                                        <td>
+                                            Request method name:  <code>POST</code>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">api call</td>
+                                        <td class="api_td">{SiteUrl}/api/module/users/login?api_type=ios&api_access_key=82039d16dce0aab3913b6a7ac73deff7&api_secret=f470d26a937d8f15bf40ef&is_mobile_api=1&username=user@clubmail.com&password=123456&devicetoken=dsadadad32adaddsdsds223ds23332</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">parameters <!--<span class="label label-optional">optional</span>--></td>
+                                        <td>api_type, api_access_key, api_secret, is_mobile_api, username, password, devicetoken</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">parameters <span class="label label-optional">optional</span></td>
+                                        <td> - </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code"> other notes </td>
+                                        <td> - </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <p>Example:</p>
+<pre class="example"><code>/*
+{
+ "success": 1,
+ "data": {
+   "userRole": "EndUser",
+   "user_id": "21",
+   "role_id": "1",
+   "name": "abcuser",
+   "profilepic": "http://localhost/ClubhouseNow/uploads/users/profile_user.png",
+   "keyexpired": 1,
+   "newgeneratedapi": "577892f1781b2adef06ea0",
+   "devicetoken": "dsadadad32adaddsdsds223ds23332"
+ },
+ "error": 0,
+ "error_code": null
+}
+*/</code></pre>
+                        </article>
+
+                        
+                        <article id="create-acc">
+                            <h2>@create account</h2>
+                            <pre><code>@api {method} path [parameters]</code></pre>
+                            <p>To instial create account process</p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="code">method</td>
+                                        <td>
+                                            Request method name:  <code>POST</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">api call</td>
+                                        <td class="api_td">{SiteUrl}/api/module/users/createAccount/?api_type=android&api_access_key=82039d16dce0aab3913b6a7ac73deff7&api_secret=f470d26a937d8f15bf40ef&is_mobile_api=1&firstname=testuser&lastname=testuser&email=test@mail.com&mobile=8862012456&company=abc&no_of_emps=1-20 employees</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">parameters <!--<span class="label label-optional">optional</span>--></td>
+                                        <td>api_type, api_access_key, api_secret, is_mobile_api, firstname, lastname, email, mobile, company, no_of_emps</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">parameters <span class="label label-optional">optional</span></td>
+                                        <td> - </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code"> other notes </td>
+                                        <td> - </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <p>Example:</p>
+                            <pre class="example"><code>/*
+ {
+  "success": 1,
+  "data": "success",
+  "error": 0,
+  "error_code": null
+}
+ */</code></pre>
+                        </article>
+
+                        <article id="get-single-ev">
+                            <h2>@get single event </h2>
+                            <pre><code>@api {method} path [parameters]</code></pre>
+                            <p>Get single event detail </p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="code">method</td>
+                                        <td>
+                                            Request method name:  <code>GET</code>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">api call</td>
+                                        <td class="api_td">{SiteUrl}/api/module/events/getEvent/?api_type=android&api_access_key=82039d16dce0aab3913b6a7ac73deff7&api_secret=f470d26a937d8f15bf40ef&is_mobile_api=1&id=1&userid=4</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">parameters <!--<span class="label label-optional">optional</span>--></td>
+                                        <td>api_type, api_access_key, api_secret, is_mobile_api, userid, id</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">parameters <span class="label label-optional">optional</span></td>
+                                        <td> - </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code"> other notes </td>
+                                        <td> - </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <p>Example:</p>
+                            <pre class="example"><code>/*
+ {
+  "success": 1,
+  "data": {
+    "id": "1",
+    "category_id": "1",
+    "name": "aaaa",
+    "description": "<p>bbdbdbdfbdbd</p>",
+    "timezone": "Asia/Kolkata",
+    "latitude": "28.51454545",
+    "longitude": "178.155455",
+    "address": "G/F Makati Cinema Square, Pasong Tamo, Makati City",
+    "city": "surat",
+    "state": "gujarat",
+    "country": "india",
+    "zipcode": "395001",
+    "is_paid": "1",
+    "price": "100",
+    "image": "http://localhost/ClubhouseNow/uploads/events/logo/1495713677Koala.jpg",
+    "banner_image": "http://localhost/ClubhouseNow/uploads/events/banner/no-cover-image.png",
+    "discount_type": "0",
+    "discount_amount": "0",
+    "offer_start_date": "1970-01-01 00:00:00",
+    "offer_end_date": "1970-01-01 00:00:00",
+    "status": "1",
+    "start_date": "2017-05-26 17:00:00",
+    "end_date": "2017-05-30 22:00:00",
+    "dates": [
+      "05-26-2017"
+    ],
+    "total_spots": -1,
+    "is_join": 0,
+    "booking_details": {
+      "event_id": "",
+      "slot_id": "",
+      "slot_time_id": ""
+    },
+    "filled_spots": 0,
+    "time_available": [
+      "17:00 - 22:00"
+    ],
+    "interval": "0",
+    "slot_type": "0",
+    "recurring_type": 0,
+    "recurring_weeks": [],
+    "recurring_months_base": 1,
+    "recurring_month_date": [],
+    "recurring_month_every": [],
+    "recurring_month_day": []
+  },
+  "error": 0,
+  "error_code": null
+}
+ */</code></pre>
+                        </article>
+
+
+                       
+
+
+
+                        <article id="get-classes-cate">
+                            <h2>@get events category </h2>
+                            <pre><code>@api {method} path [parameters]</code></pre>
+                            <p>Get Events Category Detail  </p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="code">method</td>
+                                        <td>
+                                            Request method name:  <code>GET</code>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">api call</td>
+                                        <td class="api_td">{SiteUrl}/api/module/common/geteventcategories/?api_type=android&api_access_key=82039d16dce0aab3913b6a7ac73deff7&api_secret=f470d26a937d8f15bf40ef&is_mobile_api=1&userid=4</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">parameters <!--<span class="label label-optional">optional</span>--></td>
+                                        <td>api_type, api_access_key, api_secret, is_mobile_api, userid</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">parameters <span class="label label-optional">optional</span></td>
+                                        <td> - </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code"> other notes </td>
+                                        <td> - </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <p>Example:</p>
+                            <pre class="example"><code>/*
+{
+  "success": 1,
+  "data": [
+    {
+      "id": "1",
+      "name": "Tee Times"
+    },
+    {
+      "id": "2",
+      "name": "Lessons"
+    },
+    {
+      "id": "3",
+      "name": "Tournaments"
+    },
+    {
+      "id": "4",
+      "name": "Social Events"
+    },
+    {
+      "id": "5",
+      "name": "Weddings"
+    },
+    {
+      "id": "6",
+      "name": "Spa & Salon"
+    },
+    {
+      "id": "18",
+      "name": "aaaaa"
+    },
+    {
+      "id": "22",
+      "name": "ssss"
+    },
+    {
+      "id": "24",
+      "name": "xxxxxxx"
+    }
+  ],
+  "error": 0,
+  "error_code": null
+}
+ */</code></pre>
+                        </article>
+
+                        
+                        
+                         <article id="get-date-class">
+                            <h2>@get date of event </h2>
+                            <pre><code>@api {method} path [parameters]</code></pre>
+                            <p>Get Date Of Event Detail  </p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="code">method</td>
+                                        <td>
+                                            Request method name:  <code>GET</code>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">api call</td>
+                                        <td class="api_td">{SiteUrl}/api/module/events/getEventDate/?api_type=android&api_access_key=82039d16dce0aab3913b6a7ac73deff7&api_secret=f470d26a937d8f15bf40ef&is_mobile_api=1&id=1&date=04-28-2017&type=2&userid=4</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">parameters <!--<span class="label label-optional">optional</span>--></td>
+                                        <td>api_type, api_access_key, api_secret, is_mobile_api, id, userid, date, type</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">parameters <span class="label label-optional">optional</span></td>
+                                        <td> - </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code"> other notes </td>
+                                        <td> - </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <p>Example:</p>
+                            <pre class="example"><code>/*
+{
+  "success": 1,
+  "data": {
+    "total_spots": 0,
+    "is_join": 0,
+    "booking_details": {
+      "event_id": "",
+      "slot_id": "",
+      "slot_time_id": ""
+    },
+    "filled_spots": 0,
+    "time_available": [],
+    "interval": 0,
+    "slot_type": 0,
+    "recurring_type": 0,
+    "recurring_weeks": [],
+    "recurring_months_base": 1,
+    "recurring_month_date": [],
+    "recurring_month_every": [],
+    "recurring_month_day": []
+  },
+  "error": 0,
+  "error_code": null
+}
+ */</code></pre>
+                        </article>
+                        
+                        
+                         <article id="date-wise-slots">
+                            <h2>@date wise slots </h2>
+                            <pre><code>@api {method} path [parameters]</code></pre>
+                            <p>Get Date Wise Slots </p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="code">method</td>
+                                        <td>
+                                            Request method name:  <code>GET</code>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">api call</td>
+                                        <td class="api_td">{SiteUrl}/api/module/events/getEventSlotTimeOnDate/?api_type=android&api_access_key=82039d16dce0aab3913b6a7ac73deff7&api_secret=f470d26a937d8f15bf40ef&is_mobile_api=1&id=5&userid=4&date=05-08-2017</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">parameters <!--<span class="label label-optional">optional</span>--></td>
+                                        <td>api_type, api_access_key, api_secret, is_mobile_api, id, userid, date</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code">parameters <span class="label label-optional">optional</span></td>
+                                        <td> - </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="code"> other notes </td>
+                                        <td> - </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <p>Example:</p>
+                            <pre class="example"><code>/*
+{
+  "success": 1,
+  "data": [],
+  "error": 0,
+  "error_code": null
+}
+ */</code></pre>
+                        </article>
+                    
+                         
+                         
+                        
+                        
+                        
+                    </section>
+                </div><!-- /#content -->
+            </div><!-- /#main -->
+
+        </div><!-- /.container -->
+
+        <script src="./css/jquery-1.11.0.min.js"></script>
+        <script src="./css/easyResponsiveTabs.js"></script>
+        <script>
+            $(document).ready(function() {
+                var headerSize = 70;
+                // Anchor scroll
+                $("a").each(function() {
+                    if ($(this).attr("href").substr(0, 1) === "#") {
+                        $(this).on("click", function(e) {
+                            e.preventDefault();
+                            var id = $(this).attr("href");
+                            $("html,body").animate({scrollTop: parseInt($(id).offset().top) - headerSize}, 200);
+                            window.location.hash = $(this).attr("href");
+                        });
+                    }
+                });
+                if (window.location.hash) {
+                    var id = window.location.hash;
+                    setTimeout(function() {
+                        $("html,body").animate({scrollTop: parseInt($(id).offset().top) - headerSize}, 0);
+                    }, 1);
+                }
+
+                // Easy-Responsive-Tabs
+                $('#exampleTab').easyResponsiveTabs();
+
+                // Simple fix nav-main Scrollposition (no-resize)
+                var $doc = $(document);
+                var $nav = $(".nav-main");
+                var $params = $("#nav-main-params");
+                var maxMove = $params.offset().top - headerSize;
+                var height = $nav.height() - ($params.position().top - $nav.position().top) + headerSize;
+                function moveNav() {
+                    if ($doc.scrollTop() > maxMove)
+                        $nav.css({marginTop: $doc.scrollTop() - maxMove});
+                    else
+                        $nav.css({marginTop: 0});
+                }
+                // Enable if screen is heigh enough
+                if ($doc.height() >= height) {
+                    moveNav();
+                    $doc.scroll(function() {
+                        moveNav();
+                    });
+                }
+            });
+        </script>
+
+
+    </body></html>

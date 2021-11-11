@@ -1,0 +1,77 @@
+<ul class="page-breadcrumb breadcrumb">
+     <li>
+          <i class="fa fa-home"></i>
+          <a ui-sref="dashboard" >Home</a>
+          <i class="fa fa-angle-right"></i>
+     </li>
+     <li><a href="javascript:void(0);">Event SubCategories</a></li>
+</ul>
+
+<!-- BEGIN EXAMPLE TABLE PORTLET-->
+<div class="portlet box blue-hoki" ng-init="getEventsSubCategories()">
+     <div class="portlet-title">
+          <div class="caption">
+               Event SubCategories       
+          </div>
+          <div class="tools">
+          </div>
+     </div>
+     <div class="portlet-body"> 
+          <div class="alert alert-success show-success" ng-show="success"> </div> 
+          <div class="col-md-6 row">
+              <div class="btn-group"> 
+                    <a class="btn yellow-lemon" ui-sref="addeventsubcategory({id: {{id}}})"> Add New <i class="fa fa-plus"></i> </a>
+              </div>  
+              <div class="btn-group caption-head">
+                <div class="caption caption-title" ng-if="parent_category">
+                    <span class="caption-subject bold bold-title"> Parent Category :</span>
+                    <span class="caption-helper">{{parent_category}}</span>
+                </div> 
+                <div class="caption caption-title" ng-if="subtitle">
+                    <span class="caption-subject bold bold-title"> Sub Category :</span>
+                    <span class="caption-helper">{{subtitle}}</span>
+                </div>
+              </div>
+          </div> 
+          <div class="col-md-6 text-right"><label><input type="text" ng-model="search" ng-change="filter()" placeholder="Filter" class="form-control" /></label></div>
+          <div ng-show="filteredItems > 0">
+               <table class="table table-striped table-bordered table-hover dataTable no-footer">
+                    <thead>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Created On</th>
+                    <th>Status</th> 	
+                    <th>Actions</th> 	
+                    </thead>
+                    <tbody>
+                         <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit" >
+                              <td ng-if="subtitle" > {{ $index + 1 }}</td>
+                              <td ng-if="subtitle" >{{data.name}}</td>
+                              <td ng-if="subtitle" ng-bind="convertToDate(data.created) | date:'MM-dd-yyyy'"></td>
+                              <td ng-if="data.status == 1 && subtitle">Active</td>
+                              <td ng-if="data.status == 0 && subtitle">Inactive</td>
+                              
+                              <td ui-sref="eventsubcategories({id: {{data.id}}})" ng-if="!subtitle" > {{ $index + 1 }}</td>
+                              <td ui-sref="eventsubcategories({id: {{data.id}}})" ng-if="!subtitle" >{{data.name}}</td>
+                              <td ui-sref="eventsubcategories({id: {{data.id}}})" ng-bind="convertToDate(data.created) | date:'MM-dd-yyyy'" ng-if="!subtitle"></td>
+                              <td ui-sref="eventsubcategories({id: {{data.id}}})" ng-if="data.status == 1 && !subtitle" >Active</td>
+                              <td ui-sref="eventsubcategories({id: {{data.id}}})" ng-if="data.status == 0 && !subtitle" >Inactive</td>
+                              <td>
+                                   <a class="btn default btn-xs blue-hoki" href="#/eventcategories/sub/{{id}}/edit_subcategory/{{data.id}}" ><i class="fa fa-edit"></i> Edit </a>
+                                   <a href="javascript:;" ng-click="Delete_EventsCategory(data)" ng-if="data.is_delete == 1" class="btn default btn-xs red-flamingo"><i class="fa fa-trash-o"></i> Delete </a> 
+                              </td>
+                         </tr>
+                    </tbody>
+               </table>  
+          </div>
+          <div class="row" ng-show="filteredItems > 0">  
+               <div class="col-md-5 col-sm-12"><div class="dataTables_info" role="status" aria-live="polite">Showing {{ filtered.length }} of {{ totalItems}} entries</div></div>
+               <div class="col-md-7 col-sm-12">
+                    <pagination  page="currentPage" ng-model="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></pagination>
+               </div>
+          </div>
+          <div class="row" ng-show="filteredItems == 0">
+               <div class="col-sm-12 text-center"><p>No record found</p></div>
+          </div>
+     </div>
+</div>

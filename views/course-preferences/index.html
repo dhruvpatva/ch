@@ -1,0 +1,175 @@
+<ul class="page-breadcrumb breadcrumb">
+    <!-- <li>
+        <i class="fa fa-home"></i>
+        <a ui-sref="dashboard" >Home</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li><a href="javascript:void(0);">Events</a></li> -->
+</ul>
+<div class="row">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a data-target="#tab_1_1" data-toggle="tab">Restaurant</a>
+        </li>
+        <li>
+            <a data-target="#tab_1_2"  data-toggle="tab">Events</a>
+        </li>
+        <li>
+            <a data-target="#tab_1_3" data-toggle="tab">Equipment</a>
+        </li>
+        <li>
+            <a data-target="#tab_1_4" data-toggle="tab">Kitchen</a>
+        </li>
+    </ul>
+</div>
+<!-- BEGIN EXAMPLE TABLE PORTLET-->
+<div class="main-container-block box tab-content" ng-init="getEvents()">
+    <!-- <div class="portlet-title">
+        <div class="caption">
+            Course Preferences
+        </div>
+        <div class="tools">
+        </div>
+    </div> -->
+    <div class="portlet-body tab-pane active" id="tab_1_1">
+        
+    </div>
+    <div class="portlet-body tab-pane" id="tab_1_2">
+        <ul class="nav nav-tabs">
+            <!-- <li class="dropdown pull-right tabdrop">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-ellipsis-v"></i>&nbsp;<i class="fa fa-angle-down"></i>
+                    <b class="caret"></b></a><ul class="dropdown-menu">
+                        <li>
+                <a href="#tab8" data-toggle="tab">Section 8</a>
+            </li></ul></li> -->
+            <li class="active">
+                <a data-target="#tab1" data-toggle="tab" aria-expanded="true">Golf Classes</a> 
+                <div class="switch">
+                        <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox" />
+                        <label for="cmn-toggle-1"></label>
+                 </div>
+            </li>
+            <li class="">
+                <a data-target="#tab2" data-toggle="tab" aria-expanded="true">Spa</a>
+                <div class="switch">
+                        <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox" />
+                        <label for="cmn-toggle-1"></label>
+                 </div>
+            </li>
+            <li class="">
+                <a data-target="#tab3" data-toggle="tab" aria-expanded="false">Pool</a>
+                <div class="switch">
+                        <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox" />
+                        <label for="cmn-toggle-1"></label>
+                 </div>
+            </li>
+            <li class="">
+                <a data-target="#tab4" data-toggle="tab" aria-expanded="false">Social Events </a>
+                <div class="switch">
+                        <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox" />
+                        <label for="cmn-toggle-1"></label>
+                 </div>
+            </li>
+            <li class="">
+                <a data-target="#tab5" data-toggle="tab" aria-expanded="false">Weddings</a>
+                <div class="switch">
+                        <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox" />
+                        <label for="cmn-toggle-1"></label>
+                 </div>
+            </li>
+        </ul>
+        <div class="tabbable tabbable-tabdrop"> 
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                        <div class="row">
+                            <div class="btn-group">
+                                <h4 class="result">Results (4)</h4>
+                            </div>
+                            <div class="btn-group pull-right">
+                                <a class="btn yellow-lemon" ui-sref="addevent"> Download CSV <i class="fa fa-plus"></i> </a>
+                            </div>
+                            <div class="btn-group pull-right">
+                                <a class="btn yellow-lemon" ui-sref="addevent"> Upload CSV <i class="fa fa-plus"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab2">
+                        <p> Howdy, I'm in Section 2. </p>
+                    </div>
+                    <div class="tab-pane" id="tab3">
+                        <p> Howdy, I'm in Section 3. </p>
+                    </div>
+                    <div class="tab-pane" id="tab4">
+                        <p> Howdy, I'm in Section 4. </p>
+                    </div>
+                    <div class="tab-pane" id="tab5">
+                        <p> Howdy, I'm in Section 5. </p>
+                    </div>
+                    <div class="tab-pane" id="tab6">
+                        <p> Howdy, I'm in Section 6. </p>
+                    </div>
+                    <div class="tab-pane" id="tab7">
+                        <p> Howdy, I'm in Section 7. </p>
+                    </div>
+                    <div class="tab-pane" id="tab8">
+                        <p> Howdy, I'm in Section 8. </p>
+                    </div>
+                    <div class="tab-pane" id="tab9">
+                        <p> Howdy, I'm in Section 9. </p>
+                    </div>
+                </div>
+         </div>
+        
+        
+        <!-- <div class="alert alert-success show-success" ng-show="success"> </div> 
+        <div class="col-md-6 row">
+            <div class="btn-group">
+                <a class="btn yellow-lemon" ui-sref="addevent"> Add New <i class="fa fa-plus"></i> </a>
+            </div>
+        </div>
+        <div class="col-md-6 text-right"><label><input type="text" ng-model="search" ng-change="searchDB()" placeholder="Filter" class="form-control" /></label></div>
+        <div ng-show="list.length > 0">
+            <table class="table table-striped table-bordered table-hover dataTable no-footer">
+                <thead>
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Name</th>
+                    <th>Status</th> 	
+                    <th>Actions</th> 	
+                </thead>
+                <tbody>
+                    <tr dir-paginate="data in list | itemsPerPage:10" total-items="totalItems">
+                        <td> {{ $index + 1 }}</td>
+                        <td ng-if="data.image != ''"><img class="class_img" ng-src="{{data.image}}" alt="{{data.name}}" style="width: 50px;padding: 5px;" /></td>
+                        <td ng-bind-html="data.category_name"></td>
+                        <td ng-bind-html="data.name"></td>
+                        <td ng-if="data.status == 1">Active</td>
+                        <td ng-if="data.status == 0">Inactive</td>
+                        <td>
+                            <a class="btn default btn-xs blue-soft" href="#/events/timeslots/{{data.id}}" ><i class="fa fa-clock-o"></i> Time Slots </a>
+                            <a class="btn default btn-xs blue-hoki" href="#/events/editevent/{{data.id}}" ><i class="fa fa-edit"></i> Edit </a>
+                            <a href="javascript:;" ng-click="Delete_Event(data)" class="btn default btn-xs red-flamingo"><i class="fa fa-trash-o"></i> Delete </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>  
+        </div>
+        <div class="row" ng-show="list.length > 0">  
+            <div class="col-md-5 col-sm-12"><div class="dataTables_info" role="status" aria-live="polite">Showing {{ list.length }} of {{ totalItems}} entries</div></div>
+            <div class="col-md-7 col-sm-12">
+                <dir-pagination-controls class="pull-right" on-page-change="pageChanged(newPageNumber)" template-url="tpl/dirPagination.html" ></dir-pagination-controls>
+            </div>
+        </div>
+        <div class="row" ng-show="list.length == 0">
+            <div class="col-sm-12 text-center"><p>No record found</p></div>
+        </div> -->
+    </div>
+    <div class="portlet-body tab-pane" id="tab_1_3">
+        
+    </div>
+    <div class="portlet-body tab-pane" id="tab_1_4">
+        
+    </div>
+</div>

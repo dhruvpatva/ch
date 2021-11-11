@@ -1,0 +1,334 @@
+/* here you can put your own css to customize and override the theme */
+
+/***
+Rounded Portlets
+***/
+/*
+.portlet {
+        border-radius: 4px !important;
+}
+
+.portlet .portlet-title {
+        border-radius: 4px 4px 0px 0px !important;
+}
+
+.portlet .portlet-body,
+.portlet .portlet-body .form-actions  {
+        border-radius: 0px 0px 4px 4px !important;
+}
+*/
+
+/*
+Change Quick Sidebar Width
+*/
+
+/*
+.page-quick-sidebar-wrapper {
+  right: -370px;
+  width: 370px;
+}
+
+.page-quick-sidebar-open.page-quick-sidebar-push-content .page-sidebar-wrapper {
+  margin-left: -370px;
+}
+
+.page-quick-sidebar-open.page-quick-sidebar-push-content .page-footer {
+  margin-right: 370px;
+  margin-left: -370px;
+}
+
+.page-sidebar-reversed.page-quick-sidebar-open.page-quick-sidebar-push-content .page-sidebar-wrapper {
+  margin-right: 370px;
+}
+
+.page-quick-sidebar-open.page-quick-sidebar-push-content.page-quick-sidebar-full-height .page-header {
+  margin-left: -370px;
+}
+
+.page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-list {
+  width: 370px !important;
+}
+
+.page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-item {
+  width: 370px !important;
+  margin-left: 370px;
+}
+
+.page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-content-item-shown .page-quick-sidebar-list {
+  margin-left: -370px;
+}
+*/
+
+.page-header.navbar{
+     background-color: #fff;
+}
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover, .page-sidebar{
+background-color: #161D47;
+}
+.page-logo{
+    background-color: #161D47;
+    z-index: 99999;
+    padding: 35px 0;
+}
+.row{
+    margin-left: 15px !important;
+}
+.page-header.navbar{
+border: none;
+}
+.page-content{
+    background-color:#E5E7EF;
+}
+.portlet{
+    border: none!important;
+}
+
+.myloginpage{
+    background: url(../img/background.jpg);
+    background-position-x: 81%;
+    background-position-y: 20%;
+    background-repeat: no-repeat;
+    background-size: 128% auto;
+}
+.login .content h3 {
+    text-align: center;
+}
+.login .content h3 img{
+    width: 175px;
+    height: auto;
+}
+.login .login-form .btn{
+    text-transform: none;
+    font-size: initial;
+    width: 100%;
+
+}
+.login .login-form .form-group{
+    margin-bottom: 22px;
+}
+.login .login-form .form-actions{
+    border: none;
+
+}
+.login .content .form-title{
+    margin-bottom: 40px;
+}
+.login .login-form .green-haze.btn{
+    background-color:#b01e22;
+}
+.login .login-form .input-icon > .form-control{
+    padding-left: 12px;
+    background-color: #edeef4;
+    height: 40px; 
+}
+.login .content .forget-password{
+    margin-top: 60px;
+    text-align: center;
+
+}
+.login .content .forget-password a{
+    color:#2e345a;
+}
+.login .content h4{
+    font-weight: 600;
+}
+.login .content a:focus, a:hover{
+    text-decoration: none;
+}
+.login .content{
+    border-radius: 0px;
+}
+.login .copyright{
+    padding: 75px;
+    color:#fff;
+    font-size: 10px;
+    font-weight: 300;
+    word-spacing: 1px;
+}
+
+.login .copyright h5{
+    font-weight: 700;
+    word-spacing: 0px;
+}
+
+
+
+/*Registration*/
+.registration .content{
+    width: 800px;
+}
+.registration .login-form .btn{
+    width: auto;
+}
+
+.registration .login-form .input-icon > .form-control{
+    padding-left: 12px;
+    background-color: #f0f4f8;
+    height: 35px; 
+}
+.red-registration{
+    background-color: #b01e22;
+    color: hsl(0, 0%, 100%);
+    font-weight: bold;
+    padding: 10px 35px 10px 35px;
+    font-size: 11px;
+    text-transform: initial;
+}
+.registration {
+    background-color: #e5e7ef !important;
+}
+.registration-create {
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px 35px 10px 35px;
+    font-size: 30px;
+    font-weight: 900;
+    color:#161D47;
+
+}
+.registration .login-form .control-label{
+    font-weight: 600;
+}
+.form-wizard .steps{
+    background-color: unset;
+    width: 350px;
+    margin: 0 auto;
+
+}
+.form-wizard .steps > li > a.step{
+    background-color: unset;
+}
+.form-wizard .steps > li > a.step > .number{
+    margin-bottom: 12px;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 5px 15px 13px;
+    background-color:#f0f4f8;
+}
+.form-wizard .steps > li.active > a.step .number {
+    background-color: #b01e22;
+    color: #fff;
+}
+.form-wizard .steps > li > a.step > .desc{
+    font-size: 13px;
+    font-weight: 600;
+}
+.login .login-form2{
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+}
+.form-control-register{
+    padding-bottom: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
+    transition-timing-function: ease-in-out, ease-in-out;
+    width: 100%;
+}
+.red-registration-back{
+    background-color: #A6A9B8;
+    text-transform: initial;
+
+}
+.form-wizard .step-thankyou{
+    width: auto;
+    padding:0px;
+}
+.form-wizard .step-thankyou > li > a.step > .number{
+    height:80px;
+    width:80px;
+    line-height: 91px;
+    padding:0px;
+    border: 1px solid #000;
+    color:#B01E22;
+}
+
+.fa-lg:not(.fa-stack), .icon-lg{
+    font-size:50px!important;
+}
+.login .content-thankyou{
+    width: 550px;
+}
+.last-thank{
+    text-align: center; 
+}
+
+.last-thank h1{
+    color:#161D47;
+    font-size: 40px;
+    font-weight: bolder!important;
+}
+.last-thank h5{
+    font-size: 15px; 
+    color:#515569;
+    font-weight: bolder;
+    line-height: 24px;
+}
+.thankcopyright{
+    padding:15px!important;
+}
+.content-thankyou{
+    padding:50px!important;
+}
+.login .content-thankyou .form-title{
+    margin-bottom:0px;
+}
+@media (max-width: 768px){
+    .form-wizard .steps > li > a{
+        text-align: center;
+    }
+    .myloginpage{
+        background-size: 162% auto;
+    }
+    .registration .content {
+        width: 100%;
+    }
+    .login .copyright{
+        padding: 0px;
+    }
+}
+@media (max-width: 1024px){
+    .myloginpage{
+        background-size: 133% auto;
+    }
+}
+@media (max-width: 414px){
+    .myloginpage{
+        background-size: cover;
+        background-position: center center;
+    }
+    .registration .content {
+        width: 100%;
+    }
+    .form-wizard .steps{
+        width: 100%;
+    }
+    .nav-justified li{
+        width: 43%;
+        display: inline-block;
+        float: left;
+    }
+}
+@media (max-width: 320px){
+    .nav-justified li{
+        width: 48%;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

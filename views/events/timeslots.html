@@ -1,0 +1,67 @@
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <i class="fa fa-home"></i>
+        <a ui-sref="dashboard" >Home</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li><a href="javascript:void(0);">Time Slots</a></li>
+</ul>
+
+<!-- BEGIN EXAMPLE TABLE PORTLET-->
+<div class="portlet box blue-hoki" ng-init="getEventTimeSlots()">
+    <div class="portlet-title">
+        <div class="caption">
+            Time Slots
+        </div>
+        <div class="tools">
+        </div>
+    </div>
+    <div class="portlet-body"> 
+        <div class="alert alert-success show-success" ng-show="success"> </div> 
+        <div class="col-md-6 row">
+            <div class="btn-group">
+                <a class="btn yellow-lemon" ui-sref="addslot({id: {{event.id}}})"> Add New <i class="fa fa-plus"></i> </a>
+            </div>
+        </div>
+        <div class="col-md-6 text-right">
+            <label><input type="text" ng-model="search" ng-change="searchDB()" placeholder="Filter" class="form-control" /></label>
+        </div>
+        <div ng-show="list.length > 0">
+            <table class="table table-striped table-bordered table-hover dataTable no-footer">
+                <thead>
+                    <th>#</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Attendees</th>
+                    <th>Total Time Slots</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <tr dir-paginate="data in list | itemsPerPage:10" total-items="totalItems">
+                        <td> {{ $index + 1 }}</td>
+                        <td ng-bind="convertToDate(data.start_date_time) | date:'MM-dd-yyyy hh:mm a'"></td>
+                        <td ng-bind="convertToDate(data.end_date_time) | date:'MM-dd-yyyy hh:mm a'"></td>
+                        <td>0</td>
+                        <td><a class="btn default btn-xs blue-hoki" href="#/events/slots/{{data.id}}/{{event.id}}" >{{ data.total_slots }}</a></td>
+                        <td ng-if="data.status == 1">Active</td>
+                        <td ng-if="data.status == 0">Inactive</td>
+                        <td>
+                            <a class="btn default btn-xs blue-hoki" href="#/events/editslot/{{data.id}}/{{event.id}}" ><i class="fa fa-edit"></i> Edit </a>
+                            <a href="javascript:;" ng-click="Delete_TimeSlot(data)" class="btn default btn-xs red-flamingo"><i class="fa fa-trash-o"></i> Delete </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>  
+        </div>
+        <div class="row" ng-show="list.length > 0">  
+            <div class="col-md-5 col-sm-12"><div class="dataTables_info" role="status" aria-live="polite">Showing {{ list.length }} of {{ totalItems }} entries</div></div>
+            <div class="col-md-7 col-sm-12">
+                <dir-pagination-controls class="pull-right" on-page-change="pageChanged(newPageNumber)" template-url="tpl/dirPagination.html" ></dir-pagination-controls>
+            </div>
+        </div>
+        <div class="row" ng-show="list.length == 0">
+            <div class="col-sm-12 text-center"><p>No record found</p></div>
+        </div>
+    </div>
+</div>

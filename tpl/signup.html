@@ -1,0 +1,150 @@
+     <!-- BEGIN PAGE CONTENT-->
+     
+        <div class="" id="form_wizard_1">
+
+            <div class="portlet-body form" ng-init="initCreateAccount()">
+                <div class="registration-create">
+                    Create Account
+                </div>
+                <form class="login-form login-form2" id="submit_form" method="POST" ng-submit="createAccount()">
+                    <div class="form-wizard">
+                        <div class="form-body">
+                            <ul class="nav nav-pills nav-justified steps">
+                                <li>
+                                    <a href="#tab1" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            1 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Contact Information </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab2" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            2 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> My Company </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="alert alert-danger display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    You have some form errors. Please check below.
+                                </div>
+                                <div class="alert alert-success display-none" ng-show="error">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    {{error_code}}
+                                </div>
+                                <div class="tab-pane active" id="tab1">
+
+                                    <div class="content">
+                                        <div class="portlet-body form">
+                                            <!-- BEGIN FORM-->
+
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group input-icon">
+                                                            <label class="control-label">First Name</label>
+                                                            <input type="text" id="firstname" class="form-control" placeholder="" ng-model="users.firstname"  name="firstname">
+                                                        </div>
+                                                    </div>
+                                                    <!--/span-->
+                                                    <div class="col-md-6">
+                                                        <div class="form-group input-icon">
+                                                            <label class="control-label">Last Name</label>
+                                                            <input type="text" id="lastname" class="form-control" ng-model="users.lastname" placeholder="" name="lastname">
+
+                                                        </div>
+                                                    </div>
+                                                    <!--/span-->
+                                                </div>
+                                                <!--/row-->
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group input-icon">
+                                                            <label class="control-label">Email Address</label>
+                                                            <input type="text" id="email" ng-model="users.email" class="form-control" placeholder="" name="email">
+
+                                                        </div>
+                                                    </div>
+                                                    <!--/span-->
+                                                    <div class="col-md-6">
+                                                        <div class="form-group input-icon">
+                                                            <label class="control-label">Phone Number</label>
+                                                            <input type="text" id="phone" class="form-control" ng-pattern="/^[0-9]{10,10}$/" ng-model="users.mobile" placeholder="" name="phone">
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <!--/span-->
+                                                </div>
+                                                <!--/row-->
+                                            </div>
+
+
+                                            <!-- END FORM-->
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab2">
+                                    <div class="content">
+                                        <div class="portlet-body form">
+                                            <!-- BEGIN FORM-->
+
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-md-6 login-form2">
+                                                        <div class="form-group input-icon">
+                                                            <label class="control-label">Company Name</label>
+                                                            <input type="text" id="companyname" class="form-control" ng-model="users.company" placeholder=""  name="companyname">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--/row-->
+
+                                                <div class="row">
+                                                    <div class="col-md-6 login-form2">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Number of Employees at your company</label>
+                                                            <select name="country" class="select2_category form-control-register" ng-options="option.name for option in no_of_emp.availableOptions track by option.id" ng-model="no_of_emp.selectedOption" data-placeholder="Choose a Category" tabindex="1" style="border-top-color:-moz-mac-accentdarkestshadow;">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                                <!--/row-->
+                                            </div>
+
+
+                                            <!-- END FORM-->
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="copyright">
+
+
+                            <a href="javascript:;" class="btn red-registration red-registration-back button-previous">
+                                Back </a>
+                            <a href="javascript:;" class="btn red-registration button-next">
+                                Next
+                            </a>
+                            <button type="submit" class="btn red-registration button-submit">
+                                Continue 
+                            </button>
+
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+     
+        <!-- END PAGE CONTENT-->
+
+    

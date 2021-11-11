@@ -1,0 +1,81 @@
+
+<!--<div id="loginbox" class="page-md login myloginpage">
+     <div class="panel">
+          <div class="panel-heading text-center">
+               <div class="panel-title">Login to your account</div>
+          </div>
+          <div class="page-logo" style="text-align: center; ">
+               <a href="#">
+               <img src="./assets/admin/layout4/img/logo-light.png" alt="logo" class="logo-default"/>
+               </a>
+          </div>
+          <hr>
+          <div class="panel-body">
+               <form name="loginForm" class="form-horizontal" method="post" ng-submit="submit()" novalidate form-autofill-fix>
+                    <div style="margin-top: 25px" class="input-icon">
+                        <i class="fa fa-user"></i></span> <input type="text" class="form-control placeholder-no-fix" name="username" ng-model="credentials.username" placeholder="Username"required />
+                    </div>
+                    <div class="error" ng-show="(submitted  || loginForm.username.$dirty)  && loginForm.username.$invalid"> <p class="error" ng-show="loginForm.username.$error.required">Username is mandatory</p>
+                    </div>
+                    
+                    <div style="margin-top: 25px" class="input-icon">
+                         <i class="fa fa-lock"></i> <input type="password" class="form-control" name="password" ng-model="credentials.password" placeholder="Password" required />
+                    </div>
+                    <div class="error" ng-show="(submitted  || loginForm.password.$dirty)  && loginForm.password.$invalid">
+                         <p class="error" ng-show="loginForm.password.$error.required">Password is mandatory</p>
+                    </div>
+                    <hr>
+                    <div  style="margin-top: 10px"  class="form-actions">
+                              <label class="checkbox">
+                              <div class="checker"><span><input type="checkbox" name="remember" value="1"></span></div> Remember me </label>
+                              <button type="submit" class="btn green-haze pull-right">
+                              Login <i class="m-icon-swapright m-icon-white"></i>
+                              </button>
+                    </div>
+                    <p ng-show="error" class="error">The password you entered is incorrect. Please try again</p>
+               </form>
+          </div>
+     </div>
+</div> -->
+<div id="loginbox" >
+<div class="content">
+	<!-- BEGIN LOGIN FORM -->
+	<form class="login-form" ng-submit="submit()" novalidate method="post" name="loginForm">
+		<h3 class="form-title"><img src="assets/admin/layout4/img/bluelogo.png" alt=""/></h3>
+		<div class="alert alert-danger" ng-show="error" >
+			<button class="close" data-close="alert"></button>
+                        <span>	{{error_code}} </span>
+		</div>
+                <div class="form-group">
+			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+			<label class="control-label visible-ie8 visible-ie9">Email Address</label>
+			<div class="input-icon">
+                            <input class="form-control placeholder-no-fix" type="text" name="username" autocomplete="off" placeholder="Email Address" ng-model="credentials.username" />
+			</div>
+                </div>
+		<div class="form-group">
+			<label class="control-label visible-ie8 visible-ie9">Password</label>
+			<div class="input-icon">
+                            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" ng-model="credentials.password" />
+			</div>
+                        <!--<div class="error" ng-show="(loginForm.password.$dirty)  && loginForm.password.$invalid">
+                         <p class="error" ng-show="loginForm.password.$error.required">Password is mandatory</p>
+                        </div>-->
+		</div>
+		<div class="form-actions">
+			<button type="submit" class="btn green-haze pull-right">
+			Login
+			</button>
+		</div>
+		
+		<div class="forget-password">
+                    <h4><a ui-sref="signup" >Create an account</a></h4>
+			<h5><a>Forgot Password ?</a></h5>
+		</div>
+	</form>
+	<!-- END LOGIN FORM -->
+	
+</div>
+<!-- END LOGIN -->
+</div>
+

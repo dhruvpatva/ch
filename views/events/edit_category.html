@@ -1,0 +1,63 @@
+<ul class="page-breadcrumb breadcrumb">
+     <li>
+          <i class="fa fa-home"></i>
+          <a ui-sref="dashboard" >Home</a>
+          <i class="fa fa-angle-right"></i>
+     </li>
+     <li><a href="javascript:void(0);">Edit Event Category</a></li>
+</ul>
+<div class="form">
+     <!-- BEGIN EXAMPLE TABLE PORTLET-->
+     <div class="portlet light portlet-fit portlet-form bordered"  ng-init="edit_EventsCategory()" >
+          <div class="portlet-title">
+               <div class="caption">
+                    Edit Event Category
+               </div>
+          </div>
+          <div class="portlet-body"> 
+               <div class="alert alert-danger show-error" ng-show="error"> <strong>Error! </strong>{{error_code}} </div>
+               <form class="form-horizontal form-bordered"   method="post"  enctype="multipart/form-data" ng-submit="Update_EventsCategory()" >
+                    <div class="form-body">
+                         <input type="hidden" name="id" ng-model="category.id" value="{{category.id}}" />
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Name</label>
+                              <div class="col-sm-4">
+                                  <input type="text" name="name" class="form-control" ng-model="category.name" disabled  value="{{category.name}}" required>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Description</label>
+                              <div class="col-sm-4">
+                                  <textarea  name="description" class="form-control" disabled ng-model="category.description" >{{category.description}} </textarea>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Category Image</label>
+                              <div class="col-sm-4">
+                                   <img class="class_logo" src="{{category.photo}}" style="width: 150px; margin-bottom: 10px;" />
+                                   <input type="file" file-model="category.image" ngf-select="onFileSelect($file)" ngf-pattern="'image/*'" >
+                                   <div class="error profile_error"></div>
+                              </div>
+                         </div>
+                         <div class="form-group">
+                              <label class="col-sm-3 control-label">Status</label>
+                              <div class="col-sm-4">
+                                   <div class="radio-list">
+                                        <label class="radio-inline"><input type="radio" name="status" ng-model="category.status"  value="1" > Active </input> </label> 
+                                        <label class="radio-inline"><input type="radio" name="status"  ng-model="category.status" value="0" > Inactive</input> </label>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="form-actions">
+                         <div class="row">
+                              <div class="col-md-offset-3 col-md-9">
+                                   <button type="submit" class="btn green" id="add-new-btn" >Submit</button>
+                                   <a class="btn default" ui-sref="eventcategories" >Cancel</a>
+                              </div>
+                         </div>
+                    </div>
+               </form>
+          </div>
+     </div>
+</div>
